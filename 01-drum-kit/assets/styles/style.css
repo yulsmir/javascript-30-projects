@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap');
+
+/*---- GENERAL STYLE RESET  ----*/
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+:not(svg, img, picture):empty {
+  display: none;
+}
+
+:root {
+  font-size: 10px;
+  font-family: 'Roboto', sans-serif;
+  background: url('../images/bg.jpg') bottom center;
+  background-size: cover;
+}
+
+/*---- GENERAL ELEMENTS STYLE ----*/
+html,
+body {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+  min-width: 320px;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  gap: 4rem;
+  min-height: 100vh;
+  padding: 4rem;
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-flow: column;
+  width: 10rem;
+  border: .4rem solid #ffff;
+  border-radius: .5rem;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  color: #ffff;
+  transition: all 0.07s;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 .5rem #000;
+}
+
+.key:hover {
+  cursor: pointer;
+  background: rgba(0,0,0,0.7);
+
+}
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #ffc600;
+}
+
+
+/* ------------------------------------- MEDIUM SIZE SCREENS ------------------------------------- */
+@media (min-width: 640px) {
+  
+}
+
+/* ------------------------------------- LARGE SIZE SCREENS ------------------------------------- */
+@media (min-width: 1024px) {
+  
+}
+
+/* ------------------------------------- EXTRA LARGE SIZE SCREENS ------------------------------------- */
+@media (min-width: 1440px) {
+ 
+}
