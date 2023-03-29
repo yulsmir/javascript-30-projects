@@ -1,35 +1,60 @@
-html {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;900&display=swap');
+
+/*---- GENERAL STYLE RESET  ----*/
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+:not(svg, img, picture):empty {
+  display: none;
+}
+
+:root {
   font-size: 10px;
-  background: url('./background.jpg') bottom center;
+  font-family: 'Roboto', sans-serif;
+  background: url('./images/bg.jpg') bottom center;
   background-size: cover;
 }
 
-body,html {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+/*---- GENERAL ELEMENTS STYLE ----*/
+html,
+body {
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
+  min-width: 320px;
 }
 
-.keys {
+.container {
   display: flex;
-  flex: 1;
-  min-height: 100vh;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+  align-content: center;
+  gap: 4rem;
+  min-height: 100vh;
+  padding: 4rem;
 }
 
 .key {
-  border: .4rem solid black;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-flow: column;
+  width: 10rem;
+  border: .4rem solid #ffff;
   border-radius: .5rem;
-  margin: 1rem;
   font-size: 1.5rem;
   padding: 1rem .5rem;
-  transition: all .07s ease;
-  width: 10rem;
-  text-align: center;
-  color: white;
+  color: #ffff;
   background: rgba(0,0,0,0.4);
-  text-shadow: 0 0 .5rem black;
+  text-shadow: 0 0 .5rem #000;
 }
 
 .playing {
@@ -48,4 +73,20 @@ kbd {
   text-transform: uppercase;
   letter-spacing: .1rem;
   color: #ffc600;
+}
+
+
+/* ------------------------------------- MEDIUM SIZE SCREENS ------------------------------------- */
+@media (min-width: 640px) {
+  
+}
+
+/* ------------------------------------- LARGE SIZE SCREENS ------------------------------------- */
+@media (min-width: 1024px) {
+  
+}
+
+/* ------------------------------------- EXTRA LARGE SIZE SCREENS ------------------------------------- */
+@media (min-width: 1440px) {
+ 
 }
