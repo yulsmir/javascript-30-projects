@@ -89,10 +89,14 @@
 
       // Array.prototype.reduce()
       // 4. How many years did all the inventors live all together?
-      // const investorsTotalAge = inventors.reduce((accumulator, currentValue) =>
+      const currentYear = 2023;
+      const investorsTotalAge = inventors.reduce(
+        (accumulator, elem) => accumulator + (currentYear - elem.year),
+        0,
+      );
+      console.log(investorsTotalAge);
 
       // 5. Sort the inventors by years lived
-      const currentYear = 2023;
       const investorsByYearsLived = inventors.sort(
         (a, b) => currentYear - a.year - (currentYear - b.year),
       );
