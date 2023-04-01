@@ -97,7 +97,7 @@
         (accumulator, inventor) => accumulator + (inventor.passed - inventor.year),
         0,
       );
-      console.log(inventorsTotalAge);
+      console.log(`Inventors lived all together ${inventorsTotalAge} years.`);
 
       // 5. Sort the inventors by years lived
       const inventorsByYearsLived = inventors.sort(
@@ -105,13 +105,18 @@
       );
       console.table(inventorsByYearsLived);
 
-      console.table(inventors);
-
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+      // const category = document.querySelector('.mw-category');
+      // const links = Array.from(category.querySelectorAll('a'));
+
+      // const de = links.map((link) => link.textContent).filter((link) => link.includes('de'));
+
+      // console.table(de);
 
       // 7. sort Exercise
       // Sort the people alphabetically by last name
+      const lastName = people.sort().forEach((name) => console.log(name.split(', ')[0]));
 
       // 8. Reduce Exercise
       // Sum up the instances of each of these
