@@ -14,8 +14,9 @@
 :root {
   font-size: 0.625rem;
   font-family: 'Roboto', sans-serif;
+  background: #018DED url(https://images.unsplash.com/photo-1495975832350-f46e82f0ceb6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Ymx1cnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60);
   background-size: cover;
-  background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+  background-repeat: no-repeat;
 }
 
 /*---- GENERAL ELEMENTS STYLE ----*/
@@ -78,8 +79,8 @@ body {
 /* ------------------------------------- LARGE SIZE SCREENS ------------------------------------- */
 @media (min-width: 1024px) {
   .clock {
-    width: 50rem;
-    height: 50rem;
+    width: 40rem;
+    height: 40rem;
   }
 }
 
