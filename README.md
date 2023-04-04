@@ -3,4 +3,5 @@
 This folder includes 30 small responsive web apps made with HTML5, CSS3, JavaScript.
 
 1. Drum kit: https://yulsmir.github.io/javascript30/01-drum-kit
-4. Array cardio 1 (console code): https://yulsmir.github.io/javascript30/04-array-cardio-01
+2. CSS & JS clocks: https://yulsmir.github.io/javascript30/02-css-and-js-clock
+3. Array cardio 1 (console code): https://yulsmir.github.io/javascript30/04-array-cardio-01
