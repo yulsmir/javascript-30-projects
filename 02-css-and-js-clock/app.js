@@ -22,7 +22,9 @@ const setDate = () => {
 
   hoursDigital.textContent = `${hours}:`;
   minutesDigital.textContent = `${minutes}:`;
-  secondsDigital.textContent = seconds;
+  seconds < 10
+    ? (secondsDigital.textContent = `0${seconds}`)
+    : (secondsDigital.textContent = seconds);
 
   console.log(seconds);
 };
