@@ -8,17 +8,13 @@ const updateTime = () => {
   const minutes = now.getMinutes();
   const hours = now.getHours();
 
-  secondsDigital.style.setProperty('--seconds', seconds);
-  minutesDigital.style.setProperty('--minutes', minutes);
-  hoursDigital.style.setProperty('--hours', hours);
-
   hoursDigital.textContent = `${addZeroBeforeNumber(hours)}:`;
   minutesDigital.textContent = `${addZeroBeforeNumber(minutes)}:`;
   secondsDigital.textContent = `${addZeroBeforeNumber(seconds)}`;
 };
 
 const addZeroBeforeNumber = (number) => {
-  return number < 10 ? '0' + number : number;
+  return number < 10 ? String(number).padStart(2, '0') : number;
 };
 
 setInterval(updateTime, 1000);
