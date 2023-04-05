@@ -1,32 +1,24 @@
-const secondHand = document.querySelector('.second-hand');
-const minHand = document.querySelector('.min-hand');
-const hourHand = document.querySelector('.hour-hand');
-
 const secondsDigital = document.querySelector('.seconds');
 const minutesDigital = document.querySelector('.minutes');
 const hoursDigital = document.querySelector('.hours');
 
-const setDate = () => {
+const updateTime = () => {
   const now = new Date();
   const seconds = now.getSeconds();
   const minutes = now.getMinutes();
   const hours = now.getHours();
 
-  const secondsDegrees = (seconds / 60) * 360 + 90;
-  const minsDegrees = (minutes / 60) * 360 + 90;
-  const hoursDegrees = (hours / 12) * 360 + 90;
+  secondsDigital.style.setProperty('--seconds', seconds);
+  minutesDigital.style.setProperty('--minutes', minutes);
+  hoursDigital.style.setProperty('--hours', hours);
 
-  secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-  minHand.style.transform = `rotate(${minsDegrees}deg)`;
-  hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
-
-  hoursDigital.textContent = `${hours}:`;
-  minutesDigital.textContent = `${minutes}:`;
-  seconds < 10
-    ? (secondsDigital.textContent = `0${seconds}`)
-    : (secondsDigital.textContent = seconds);
-
-  console.log(seconds);
+  hoursDigital.textContent = `${addZeroBeforeNumber(hours)}:`;
+  minutesDigital.textContent = `${addZeroBeforeNumber(minutes)}:`;
+  secondsDigital.textContent = `${addZeroBeforeNumber(seconds)}`;
 };
 
-setInterval(setDate, 1000);
+const addZeroBeforeNumber = (number) => {
+  return number < 10 ? '0' + number : number;
+};
+
+setInterval(updateTime, 1000);

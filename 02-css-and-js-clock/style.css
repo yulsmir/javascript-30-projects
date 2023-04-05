@@ -79,9 +79,39 @@ p {
   position: absolute;
   top: 50%;
   transform-origin: 100%;
-  transition: all 0.05s;
-  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  /* transition: all 0.05s; */
+  /* transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); */
 }
+
+/* ---- Clock animation rotation ----*/
+.hand {
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  transform-origin: right;
+}
+
+.second-hand {
+  animation-name: rotate-second-hand;
+}
+
+@keyframes rotate-second-hand {
+  from {
+    transform: rotate(var(--seconds)deg);
+  }
+  to {
+    transform: rotate(10deg);
+  }
+}
+
+
+
+/* const secondsDegrees = (seconds / 60) * 360 + 90;
+const minsDegrees = (minutes / 60) * 360 + 90;
+const hoursDegrees = (hours / 12) * 360 + 90;
+
+secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+minHand.style.transform = `rotate(${minsDegrees}deg)`;
+hourHand.style.transform = `rotate(${hoursDegrees}deg)`; */
 
 /* ------------------------------------- MEDIUM SIZE SCREENS ------------------------------------- */
 @media (min-width: 640px) {
