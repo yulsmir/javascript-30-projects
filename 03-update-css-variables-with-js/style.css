@@ -15,24 +15,30 @@
 html,
 body {
   scroll-behavior: smooth;
-  min-width: 20rem;
 }
 
 :root {
+  --base: #ffc600;
+  --spacing: 10px;
+  --blur: 10px;
   font-size: 2rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
   line-height: 2.5rem;
+  text-align: center;
+}
+
+.hl {
+  color: var(--base);
 }
 
 body {
-  background: #fff;
-  color: #000;
+  background: #193549;
+  color: #fff;
   justify-content: space-between;
 }
 
 .container {
-  width: 100vw;
   display: flex;
   flex-flow: column;
   align-content: center;
@@ -47,4 +53,11 @@ body {
 
 input {
   width: 100px;
+}
+
+img {
+  padding: var(--spacing);
+  background: var(--base);
+  width: 100vw;
+  filter: blur(var(--blur));
 }
