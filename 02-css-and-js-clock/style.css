@@ -95,6 +95,7 @@ p {
 
 .second-hand {
   animation: rotate-hand 60s infinite;
+  background: rgb(129, 0, 0);
 }
 
 /* ------------------------------------- MEDIUM SIZE SCREENS ------------------------------------- */
