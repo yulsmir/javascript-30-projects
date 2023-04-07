@@ -42,6 +42,10 @@
     "semi": [
       "warn",
       "always"
-    ]
-  }
+    ],
+    "declaration-property-unit-allowed-list": {
+      "/^border/^padding|^gap/": ["rem"]
+      },
+      "unit-allowed-list": ["%", "deg", "rem", "ms"]
+    }
 }
