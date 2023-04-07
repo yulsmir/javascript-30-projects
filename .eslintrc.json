@@ -31,7 +31,7 @@
       "always"
     ],
     "no-console": "off",
-    // "camelcase": "warn",
+    "camelCase": "warn",
     "eqeqeq": [
       "error",
       "always",
