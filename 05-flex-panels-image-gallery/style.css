@@ -21,9 +21,10 @@ body {
 
 .panels {
   min-height: 100vh;
+  min-width: auto;
   overflow: hidden;
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
 }
 
 .panel {
@@ -43,7 +44,7 @@ body {
   justify-content: center;
   align-items: center;
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
 }
 
 .panel1 {
@@ -73,22 +74,6 @@ body {
   align-items: center;
 }
 
-.panel > *:first-child {
-  transform: translateY(-100%);
-}
-
-.open-active > *:first-child {
-  transform: translateY(0%);
-}
-
-.panel > *:last-child { 
-  transform: translateY(100%);
-}
-
-.open-active > *:last-child {
-  transform: translateY(0%);
-}
-
 .open-active > p:nth-child(2) {
   transform: scale(2);
 }
@@ -97,11 +82,30 @@ body {
   text-transform: uppercase;
   font-family: 'Amatic SC', cursive;
   text-shadow: 0 0 .25rem rgba(0, 0, 0, 0.72), 0 0 .875rem rgba(0, 0, 0, 0.45);
-  font-size: 2rem;
+  font-size: 1rem;
+  border: 1px red;
+
+}
+
+/* Animation */
+.panel > *:first-child {
+  transform: translateX(-100%);
+}
+
+.open-active > *:first-child {
+  transform: translateX(70%);
+}
+
+.panel > *:last-child { 
+  transform: translateX(100%);
+}
+
+.open-active > *:last-child {
+  transform: translateX(-70%);
 }
 
 .panel p:nth-child(2) {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
 }
 
 .panel.open {
@@ -110,10 +114,44 @@ body {
 
 /* ------------------------------------- MEDIUM SIZE SCREENS ------------------------------------- */
 @media (min-width: 640px) {
+  .panels {
+    flex-direction: row;
+  }
+
+  .panel {
+    flex-direction: column;
+  }
+
+  .panel p {
+    font-size: 2rem;
+  }
+
+  .panel p:nth-child(2) {
+    font-size: 3.5rem;
+  }
+
+  /* Animation */
+  .panel > *:first-child {
+    transform: translateY(-100%);
+  }
+  
+  .open-active > *:first-child {
+    transform: translateY(0%);
+  }
+  
+  .panel > *:last-child { 
+    transform: translateY(100%);
+  }
+  
+  .open-active > *:last-child {
+    transform: translateY(0%);
+  }
 }
 
 /* ------------------------------------- LARGE SIZE SCREENS ------------------------------------- */
 @media (min-width: 1024px) {
+  
+
 }
 
 /* ------------------------------------- EXTRA LARGE SIZE SCREENS ------------------------------------- */
