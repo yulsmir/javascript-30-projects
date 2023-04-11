@@ -23,6 +23,7 @@ const updateTime = () => {
   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
   minHand.style.transform = `rotate(${minsDegrees}deg)`;
   hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+  console.log(secondsDegrees);
 };
 
 const addZeroBeforeNumber = (number) => {
