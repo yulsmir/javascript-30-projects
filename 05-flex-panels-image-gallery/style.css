@@ -22,6 +22,8 @@ body {
 .panels {
   min-height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-flow: row;
 }
 
 .panel {
@@ -37,6 +39,11 @@ body {
   font-size: 20px;
   background-size: cover;
   background-position: center;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-flow: column;
 }
 
 .panel1 {
@@ -60,6 +67,10 @@ body {
   margin: 0;
   width: 100%;
   transition: transform 0.5s;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .panel p {
