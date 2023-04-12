@@ -11,6 +11,7 @@ const updateTime = () => {
   const seconds = now.getSeconds();
   const minutes = now.getMinutes();
   const hours = now.getHours();
+  const miliseconds = now.getMilliseconds();
 
   hoursDigital.textContent = `${addZeroBeforeNumber(hours)}:`;
   minutesDigital.textContent = `${addZeroBeforeNumber(minutes)}:`;
@@ -23,11 +24,12 @@ const updateTime = () => {
   secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
   minHand.style.transform = `rotate(${minsDegrees}deg)`;
   hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
-  console.log(secondsDegrees);
+  // console.log(secondsDegrees);
+  console.log(miliseconds);
 };
 
 const addZeroBeforeNumber = (number) => {
   return number < 10 ? String(number).padStart(2, '0') : number;
 };
 
-setInterval(updateTime, 1000);
+setInterval(updateTime, 200);
