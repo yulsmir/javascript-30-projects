@@ -34,13 +34,14 @@ console.log(checkEveryAge);
 // find the comment with the ID of 823423
 const commentId = 823423;
 const foundId = comments.find((comment) => comment.id === commentId);
+
+console.log('find the comment with the ID of 823423');
 console.log(foundId);
 
 // Array.prototype.findIndex()
 // Find the comment with this ID
 // delete the comment with the ID of 823423
 const foundCommentIndex = comments.findIndex((comment) => comment.id === commentId);
-
 const commentsWithoutFoundComment = comments.filter((comment) => comment.id !== commentId);
 
 console.log(commentsWithoutFoundComment);
