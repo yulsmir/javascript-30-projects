@@ -1,4 +1,5 @@
-This folder includes 30 small responsive web apps made with HTML5, CSS3, JavaScript.
+## Challenge in progress
+This folder is going to include 30 small responsive web apps made with HTML5, CSS3, JavaScript.
 
 - [x] 1. Drum kit: https://yulsmir.github.io/javascript30/01-drum-kit
 - [x] 2. CSS & JS clocks: https://yulsmir.github.io/javascript30/02-css-and-js-clock
