@@ -26,41 +26,29 @@ const numberWithCommas = (num) => {
 
 const displayMatches = (e) => {
   const matchArray = findMatches(e.target.value, cities);
-  const regex = new RegExp(e.target.value, 'gi');
-  const html = matchArray.map((location) => generateHtml(location, regex)).join('');
+  const html = matchArray
+    .map((location) => {
+      const regex = new RegExp(e.target.value, 'gi');
+      const cityName = location.city.replace(
+        regex,
+        `<span class="highlighted">${e.target.value}</span>`,
+      );
+
+      const stateName = location.state.replace(
+        regex,
+        `<span class="highlighted">${e.target.value}</span>`,
+      );
+
+      return `
+        <li>
+          <span class="name">${cityName}, ${stateName}}</span>
+          <span class="population">${numberWithCommas(location.population)}</span>
+        </li>
+      `;
+    })
+    .join('');
+
   suggestions.innerHTML = html;
-};
-
-const generateHtml = (location, regex) => {
-  const cityName = location.city.replace(
-    regex,
-    `<span class="highlighted">${e.target.value}</span>`,
-  );
-  const stateName = location.state.replace(
-    regex,
-    `<span class="highlighted">${e.target.value}</span>`,
-  );
-  const population = numberWithCommas(location.population);
-
-  const li = document.createElement('li');
-  li.classList.add('location');
-
-  const nameSpan = document.createElement('span');
-  nameSpan.classList.add('name', 'location-name');
-  nameSpan.appendChild(document.createTextNode(cityName + ', '));
-  li.appendChild(nameSpan);
-
-  const stateSpan = document.createElement('span');
-  stateSpan.classList.add('state', 'location-state');
-  stateSpan.appendChild(document.createTextNode(stateName));
-  nameSpan.appendChild(stateSpan);
-
-  const populationSpan = document.createElement('span');
-  populationSpan.classList.add('population', 'location-population');
-  populationSpan.appendChild(document.createTextNode(population));
-  li.appendChild(populationSpan);
-
-  return li;
 };
 
 searchInput.addEventListener('change', displayMatches);
