@@ -24,31 +24,46 @@ const numberWithCommas = (num) => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
+// TODO: split function
 const displayMatches = (e) => {
   const matchArray = findMatches(e.target.value, cities);
-  const html = matchArray
-    .map((location) => {
-      const regex = new RegExp(e.target.value, 'gi');
-      const cityName = location.city.replace(
-        regex,
-        `<span class="highlighted">${e.target.value}</span>`,
-      );
+  const fragment = document.createDocumentFragment();
 
-      const stateName = location.state.replace(
-        regex,
-        `<span class="highlighted">${e.target.value}</span>`,
-      );
+  matchArray.forEach((location) => {
+    const regex = new RegExp(e.target.value, 'gi');
+    const cityName = location.city.replace(
+      regex,
+      `<span class="highlighted">${e.target.value}</span>`,
+    );
+    const stateName = location.state.replace(
+      regex,
+      `<span class="highlighted">${e.target.value}</span>`,
+    );
+    const population = numberWithCommas(location.population);
 
-      return `
-        <li>
-          <span class="name">${cityName}, ${stateName}}</span>
-          <span class="population">${numberWithCommas(location.population)}</span>
-        </li>
-      `;
-    })
-    .join('');
+    const li = document.createElement('li');
+    li.classList.add('location');
 
-  suggestions.innerHTML = html;
+    const nameSpan = document.createElement('span');
+    nameSpan.classList.add('name', 'location-name');
+    nameSpan.innerHTML = `${cityName}, `;
+    li.appendChild(nameSpan);
+
+    const stateSpan = document.createElement('span');
+    stateSpan.classList.add('state', 'location-state');
+    stateSpan.innerHTML = stateName;
+    nameSpan.appendChild(stateSpan);
+
+    const populationSpan = document.createElement('span');
+    populationSpan.classList.add('population', 'location-population');
+    populationSpan.innerHTML = population;
+    li.appendChild(populationSpan);
+
+    fragment.appendChild(li);
+  });
+
+  suggestions.innerHTML = '';
+  suggestions.appendChild(fragment);
 };
 
 searchInput.addEventListener('change', displayMatches);
