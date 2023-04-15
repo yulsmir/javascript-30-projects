@@ -24,43 +24,48 @@ const numberWithCommas = (num) => {
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 };
 
-// TODO: split function
-const displayMatches = (e) => {
-  const matchArray = findMatches(e.target.value, cities);
+const createLocationElement = (location, regex, searchValue) => {
+  const cityName = location.city.replace(regex, `<span class="highlighted">${searchValue}</span>`);
+  const stateName = location.state.replace(
+    regex,
+    `<span class="highlighted">${searchValue}</span>`,
+  );
+  const population = numberWithCommas(location.population);
+
+  const li = document.createElement('li');
+  li.classList.add('location');
+
+  const nameSpan = document.createElement('span');
+  nameSpan.classList.add('name', 'location-name');
+  nameSpan.innerHTML = `${cityName}, `;
+  li.appendChild(nameSpan);
+
+  const stateSpan = document.createElement('span');
+  stateSpan.classList.add('state', 'location-state');
+  stateSpan.innerHTML = stateName;
+  nameSpan.appendChild(stateSpan);
+
+  const populationSpan = document.createElement('span');
+  populationSpan.classList.add('population', 'location-population');
+  populationSpan.innerHTML = population;
+  li.appendChild(populationSpan);
+
+  return li;
+};
+
+const createLocationFragment = (locations, regex, searchValue) => {
   const fragment = document.createDocumentFragment();
-
-  matchArray.forEach((location) => {
-    const regex = new RegExp(e.target.value, 'gi');
-    const cityName = location.city.replace(
-      regex,
-      `<span class="highlighted">${e.target.value}</span>`,
-    );
-    const stateName = location.state.replace(
-      regex,
-      `<span class="highlighted">${e.target.value}</span>`,
-    );
-    const population = numberWithCommas(location.population);
-
-    const li = document.createElement('li');
-    li.classList.add('location');
-
-    const nameSpan = document.createElement('span');
-    nameSpan.classList.add('name', 'location-name');
-    nameSpan.innerHTML = `${cityName}, `;
-    li.appendChild(nameSpan);
-
-    const stateSpan = document.createElement('span');
-    stateSpan.classList.add('state', 'location-state');
-    stateSpan.innerHTML = stateName;
-    nameSpan.appendChild(stateSpan);
-
-    const populationSpan = document.createElement('span');
-    populationSpan.classList.add('population', 'location-population');
-    populationSpan.innerHTML = population;
-    li.appendChild(populationSpan);
-
+  locations.forEach((location) => {
+    const li = createLocationElement(location, regex, searchValue);
     fragment.appendChild(li);
   });
+  return fragment;
+};
+
+const displayMatches = (e) => {
+  const matchArray = findMatches(e.target.value, cities);
+  const regex = new RegExp(e.target.value, 'gi');
+  const fragment = createLocationFragment(matchArray, regex, e.target.value);
 
   suggestions.innerHTML = '';
   suggestions.appendChild(fragment);
