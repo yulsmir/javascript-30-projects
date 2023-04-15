@@ -41,12 +41,26 @@ const generateHtml = (location, regex) => {
     `<span class="highlighted">${e.target.value}</span>`,
   );
   const population = numberWithCommas(location.population);
-  return `
-    <li>
-      <span class="name">${cityName}, ${stateName}</span>
-      <span class="population">${population}</span>
-    </li>
-  `;
+
+  const li = document.createElement('li');
+  li.classList.add('location');
+
+  const nameSpan = document.createElement('span');
+  nameSpan.classList.add('name', 'location-name');
+  nameSpan.appendChild(document.createTextNode(cityName + ', '));
+  li.appendChild(nameSpan);
+
+  const stateSpan = document.createElement('span');
+  stateSpan.classList.add('state', 'location-state');
+  stateSpan.appendChild(document.createTextNode(stateName));
+  nameSpan.appendChild(stateSpan);
+
+  const populationSpan = document.createElement('span');
+  populationSpan.classList.add('population', 'location-population');
+  populationSpan.appendChild(document.createTextNode(population));
+  li.appendChild(populationSpan);
+
+  return li;
 };
 
 searchInput.addEventListener('change', displayMatches);
