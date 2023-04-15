@@ -5,10 +5,6 @@ const cities = [];
 const searchInput = document.querySelector('.search');
 const suggestions = document.querySelector('.suggestions');
 
-// fetch(endpoint, function (data) {
-//   console.log(msg);
-// });
-
 fetch(endpoint)
   .then((response) => response.json())
   .then((data) => cities.push(...data));
