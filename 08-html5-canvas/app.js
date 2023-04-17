@@ -49,7 +49,6 @@ const draw = (e) => {
 
   changeLineColor();
   changeLineWidth();
-  console.log(ctx.lineWidth);
 };
 
 const handleMouseDown = (e) => {
