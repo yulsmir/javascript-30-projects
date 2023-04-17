@@ -10,3 +10,4 @@ This folder is going to include 30 small responsive web apps made with HTML5, CS
 - [x] 6. Filter cities from json : https://yulsmir.github.io/javascript30/06-filter-cities-from-json
 - [x] 7. Array cardio 2 (console code): https://yulsmir.github.io/javascript30/07-array-cardio-02
 - [x] 8. HTML5 canvas : https://yulsmir.github.io/javascript30/08-html5-canvas
+- [x] 9. Dev tools (console code): https://yulsmir.github.io/javascript30/09-dev-tools
