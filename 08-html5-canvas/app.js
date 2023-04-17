@@ -56,11 +56,7 @@ const handleMouseDown = (e) => {
   [lastX, lastY] = [e.offsetX, e.offsetY];
 };
 
-const handleMouseUp = (e) => {
-  isDrawing = false;
-};
-
-const handleMouseOut = (e) => {
+const handleNotDrawing = (e) => {
   isDrawing = false;
 };
 
@@ -68,5 +64,5 @@ setupCanvas();
 
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mousedown', handleMouseDown);
-canvas.addEventListener('mouseup', handleMouseUp);
-canvas.addEventListener('mouseout', handleMouseOut);
+canvas.addEventListener('mouseup', handleNotDrawing);
+canvas.addEventListener('mouseout', handleNotDrawing);
